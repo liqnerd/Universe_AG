@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --color-background: #1d1d1e;
+  --color-accent: #d2f558;
+  --color-accent-hover: #c3e645;
+  --color-text: #ffffff;
+  --color-surface: #2a2a2b;
+  --color-surface-hover: #333334;
+  
+  --shadow-neon: 0 0 20px rgba(210, 245, 88, 0.4);
+  --shadow-neon-hover: 0 0 30px rgba(210, 245, 88, 0.6);
+  
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1d1d1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+body {
+    background-color: #1d1d1e;
+    color: #ffffff;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Scroll Reveal Animation Utility (if needed globally, though Framer Motion replaces this) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}

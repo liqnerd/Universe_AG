@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universe - Work smarter, invoice faster.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#1d1d1e',
+                        accent: '#d2f558',
+                        'accent-hover': '#c3e645',
+                        text: '#ffffff',
+                        surface: '#2a2a2b',
+                        'surface-hover': '#333334',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 20px rgba(210, 245, 88, 0.4)',
+                        'neon-hover': '0 0 30px rgba(210, 245, 88, 0.6)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #1d1d1e;
+            color: #ffffff;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1d1d1e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-accent selection:text-background">
+
+    <!-- Fixed Logo (Top Left) -->
+    <div class="fixed top-6 left-6 z-50">
+        <a href="#" class="flex items-center space-x-2 group">
+            <div
+                class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-background font-bold text-lg group-hover:shadow-neon transition-all duration-300">
+                U</div>
+            <span
+                class="self-center text-2xl font-semibold whitespace-nowrap tracking-tight text-white hidden md:block">Universe</span>
+        </a>
+    </div>
+
+    <!-- Fixed CTA (Top Right) -->
+    <div class="fixed top-6 right-6 z-50">
+        <button type="button"
+            class="text-background bg-accent hover:bg-accent-hover focus:ring-4 focus:outline-none focus:ring-accent/30 font-medium rounded-full text-sm px-6 py-2.5 text-center transition-all duration-300 shadow-neon hover:shadow-neon-hover transform hover:-translate-y-0.5">
+            Get Early Access
+        </button>
+    </div>
+
+    <!-- Tubelight Navbar (Center) -->
+    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 sm:top-6 sm:bottom-auto">
+        <div
+            class="relative flex items-center gap-1 bg-white/5 border border-white/10 backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+            <!-- Lamp Effect -->
+            <div id="lamp"
+                class="absolute top-0 left-0 h-full bg-white/5 rounded-full -z-10 transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] opacity-0">
+                <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-accent rounded-t-full">
+                    <div class="absolute w-12 h-6 bg-accent/20 rounded-full blur-md -top-2 -left-2"></div>
+                    <div class="absolute w-8 h-6 bg-accent/20 rounded-full blur-md -top-1"></div>
+                    <div class="absolute w-4 h-4 bg-accent/20 rounded-full blur-sm top-0 left-2"></div>
+                </div>
+            </div>
+
+            <!-- Nav Items -->
+            <a href="#home"
+                class="nav-item relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors text-gray-300 hover:text-accent data-[active=true]:text-accent">Home</a>
+            <a href="#features"
+                class="nav-item relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors text-gray-300 hover:text-accent data-[active=true]:text-accent">Features</a>
+            <a href="#faq"
+                class="nav-item relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors text-gray-300 hover:text-accent data-[active=true]:text-accent">FAQ</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Glow -->
+        <div
+            class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[150%] md:w-[120%] lg:w-[1000px] xl:w-[1400px] h-[600px] md:h-[800px] bg-accent/10 rounded-full blur-[100px] md:blur-[150px] -z-10 opacity-50 pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <h1
+                class="mb-6 text-5xl font-extrabold tracking-tight leading-none md:text-6xl lg:text-7xl text-white reveal">
+                Work smarter, <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white">invoice faster.</span>
+            </h1>
+            <p class="mb-8 text-lg font-normal text-gray-400 lg:text-xl sm:px-16 lg:px-48 max-w-4xl mx-auto reveal"
+                style="transition-delay: 100ms;">
+                Universe combines your to-dos, time tracking, and invoicing – so you never lose billable hours again.
+                The all-in-one OS for modern freelancers.
+            </p>
+
+            <form class="w-full max-w-md mx-auto mb-12 reveal" style="transition-delay: 200ms;">
+                <label for="email" class="mb-2 text-sm font-medium text-gray-300 sr-only">Email address</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 16">
+                            <path
+                                d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                            <path
+                                d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                        </svg>
+                    </div>
+                    <input type="email" id="email"
+                        class="block w-full p-4 ps-10 text-sm text-white border border-white/10 rounded-full bg-white/5 focus:ring-accent focus:border-accent placeholder-gray-500 focus:outline-none focus:ring-2 transition-all"
+                        placeholder="Enter your email address" required>
+                    <button type="submit"
+                        class="text-background absolute end-2.5 bottom-2.5 bg-accent hover:bg-accent-hover focus:ring-4 focus:outline-none focus:ring-accent/30 font-medium rounded-full text-sm px-6 py-2 transition-all duration-300 hover:shadow-neon">Join
+                        the beta</button>
+                </div>
+                <p class="mt-3 text-xs text-gray-500">No spam. Unsubscribe anytime.</p>
+            </form>
+
+            <!-- Hero Image Placeholder -->
+            <div class="relative mt-12 mx-auto max-w-5xl reveal" style="transition-delay: 300ms;">
+                <div
+                    class="relative rounded-xl border border-white/10 bg-surface/50 backdrop-blur-sm shadow-2xl overflow-hidden aspect-[16/9] group">
+                    <!-- Abstract UI Representation -->
+                    <div
+                        class="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-surface to-background">
+                        <div class="text-center">
+                            <div
+                                class="w-24 h-24 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center animate-pulse-slow">
+                                <svg class="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-500 text-sm uppercase tracking-widest">Dashboard Preview</p>
+                        </div>
+                    </div>
+                    <!-- Glow effect on hover -->
+                    <div
+                        class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                </div>
+                <!-- Decorative elements -->
+                <div class="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl -z-10"></div>
+                <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl -z-10">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-background relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Everything you need to run your business</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Stop switching between five different apps. Universe brings
+                    your workflow into one seamless experience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-2xl bg-surface border border-white/5 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 group reveal"
+                    style="transition-delay: 100ms;">
+                    <div
+                        class="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
+                        <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Stay Organized</h3>
+                    <p class="text-gray-400 leading-relaxed">Robust task management with deadlines, tags, and project
+                        grouping. Never miss a client deliverable again.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-2xl bg-surface border border-white/5 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 group reveal"
+                    style="transition-delay: 200ms;">
+                    <div
+                        class="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
+                        <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Track Your Time</h3>
+                    <p class="text-gray-400 leading-relaxed">Integrated live timer and manual timesheets. Track billable
+                        hours effortlessly as you work on tasks.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-2xl bg-surface border border-white/5 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 group reveal"
+                    style="transition-delay: 300ms;">
+                    <div
+                        class="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
+                        <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Invoice in One Click</h3>
+                    <p class="text-gray-400 leading-relaxed">Auto-generate professional invoices directly from your work
+                        logs. Get paid faster with less admin work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-24 border-t border-white/5 bg-surface/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">From to-do to paid</h2>
+                <p class="text-gray-400">Simple workflow designed for speed.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 z-0">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="bg-background p-6 rounded-xl border border-white/5 text-center reveal"
+                        style="transition-delay: 100ms;">
+                        <div
+                            class="w-12 h-12 bg-surface text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-2 border-accent">
+                            1</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Create Project</h3>
+                        <p class="text-sm text-gray-400">Set up your client and tasks.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-background p-6 rounded-xl border border-white/5 text-center reveal"
+                        style="transition-delay: 200ms;">
+                        <div
+                            class="w-12 h-12 bg-surface text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-2 border-accent">
+                            2</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Track Time</h3>
+                        <p class="text-sm text-gray-400">Log hours as you work.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-background p-6 rounded-xl border border-white/5 text-center reveal"
+                        style="transition-delay: 300ms;">
+                        <div
+                            class="w-12 h-12 bg-surface text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-2 border-accent">
+                            3</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Generate Invoice</h3>
+                        <p class="text-sm text-gray-400">Send and get paid.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-background">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center reveal">Frequently Asked Questions
+            </h2>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border border-white/10 rounded-lg bg-surface/30 overflow-hidden reveal"
+                    style="transition-delay: 100ms;">
+                    <button
+                        class="flex items-center justify-between w-full p-5 font-medium text-left text-white focus:ring-4 focus:ring-gray-800 hover:bg-white/5 transition-colors"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+                        <span>When will Universe launch?</span>
+                        <svg class="w-3 h-3 shrink-0 transition-transform duration-200" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5 5 1 1 5" />
+                        </svg>
+                    </button>
+                    <div class="hidden p-5 border-t border-white/10 text-gray-400">
+                        <p>We are currently in private beta and plan to open public access in Q4 2025. Join the waitlist
+                            to get early access.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-white/10 rounded-lg bg-surface/30 overflow-hidden reveal"
+                    style="transition-delay: 200ms;">
+                    <button
+                        class="flex items-center justify-between w-full p-5 font-medium text-left text-white focus:ring-4 focus:ring-gray-800 hover:bg-white/5 transition-colors"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+                        <span>Will it be free?</span>
+                        <svg class="w-3 h-3 shrink-0 transition-transform duration-200" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5 5 1 1 5" />
+                        </svg>
+                    </button>
+                    <div class="hidden p-5 border-t border-white/10 text-gray-400">
+                        <p>Universe will have a generous free tier for individual freelancers. We will also offer a Pro
+                            plan with advanced automation and unlimited history.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-white/10 rounded-lg bg-surface/30 overflow-hidden reveal"
+                    style="transition-delay: 300ms;">
+                    <button
+                        class="flex items-center justify-between w-full p-5 font-medium text-left text-white focus:ring-4 focus:ring-gray-800 hover:bg-white/5 transition-colors"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+                        <span>Can I invite team members?</span>
+                        <svg class="w-3 h-3 shrink-0 transition-transform duration-200" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5 5 1 1 5" />
+                        </svg>
+                    </button>
+                    <div class="hidden p-5 border-t border-white/10 text-gray-400">
+                        <p>Yes! The Pro plan supports small teams, allowing you to share projects, track team time, and
+                            manage invoices together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-accent/5"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 reveal">Ready to simplify your freelance
+                workflow?</h2>
+            <p class="text-xl text-gray-400 mb-10 reveal" style="transition-delay: 100ms;">Join the waitlist today and
+                get 3 months of Pro for free when we
+                launch.</p>
+
+            <form class="w-full max-w-md mx-auto reveal" style="transition-delay: 200ms;">
+                <div class="relative">
+                    <input type="email"
+                        class="block w-full p-4 ps-6 text-sm text-white border border-white/10 rounded-full bg-background focus:ring-accent focus:border-accent placeholder-gray-500 focus:outline-none focus:ring-2 transition-all shadow-lg"
+                        placeholder="Enter your email address" required>
+                    <button type="submit"
+                        class="text-background absolute end-2 bottom-2 bg-accent hover:bg-accent-hover focus:ring-4 focus:outline-none focus:ring-accent/30 font-medium rounded-full text-sm px-6 py-2.5 transition-all duration-300 hover:shadow-neon">Join
+                        the waitlist</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-12 bg-background">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <div
+                    class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-background font-bold text-lg">
+                    U</div>
+                <span class="text-xl font-semibold text-white">Universe</span>
+            </div>
+
+            <div class="text-gray-500 text-sm">
+                &copy; 2025 Universe. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tubelight Navbar Logic
+        const navItems = document.querySelectorAll('.nav-item');
+        const lamp = document.getElementById('lamp');
+
+        function setActive(item) {
+            // Move lamp
+            lamp.style.width = `${item.offsetWidth}px`;
+            lamp.style.transform = `translateX(${item.offsetLeft}px)`;
+            lamp.style.opacity = '1';
+
+            // Update text colors
+            navItems.forEach(nav => {
+                nav.classList.remove('text-accent');
+                nav.classList.add('text-gray-300');
+                nav.setAttribute('data-active', 'false');
+            });
+            item.classList.remove('text-gray-300');
+            item.classList.add('text-accent');
+            item.setAttribute('data-active', 'true');
+        }
+
+        // Click handler
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                setActive(e.target);
+            });
+        });
+
+        // Scroll Spy Logic
+        const sections = document.querySelectorAll('section');
+        const navObserverOptions = {
+            threshold: 0.3, // Trigger when 30% of section is visible
+            rootMargin: "-10% 0px -10% 0px"
+        };
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    if (id) {
+                        const activeLink = document.querySelector(`.nav-item[href="#${id}"]`);
+                        if (activeLink) {
+                            setActive(activeLink);
+                        }
+                    }
+                }
+            });
+        }, navObserverOptions);
+
+        sections.forEach(section => {
+            navObserver.observe(section);
+        });
+
+        // Initialize on first item if no hash and at top
+        if (!window.location.hash && window.scrollY < 100) {
+            setTimeout(() => setActive(navItems[0]), 100);
+        }
+
+        // Handle window resize to readjust lamp position
+        window.addEventListener('resize', () => {
+            const activeItem = document.querySelector('.nav-item[data-active="true"]');
+            if (activeItem) {
+                setActive(activeItem);
+            }
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                } else {
+                    entry.target.classList.remove('reveal-active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
