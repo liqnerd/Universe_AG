@@ -36,18 +36,20 @@ export function HowItWorks() {
                 </div>
 
                 <div className="relative">
-                    {/* Connecting Line (Desktop) */}
-                    <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 z-0"></div>
-
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
                         {steps.map((step, index) => (
                             <ScrollReveal key={index} delay={index * 0.1} width="100%">
-                                <div className="bg-background p-6 rounded-xl border border-white/5 text-center h-full">
+                                <div className="bg-background p-6 rounded-xl border border-white/5 text-center h-full relative">
                                     <div className="w-12 h-12 bg-surface text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-2 border-accent relative z-10">
                                         {step.number}
                                     </div>
                                     <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
                                     <p className="text-sm text-gray-400">{step.description}</p>
+
+                                    {/* Connecting Line */}
+                                    {index < steps.length - 1 && (
+                                        <div className="hidden md:block absolute top-1/2 -right-12 w-12 h-0.5 bg-white/10 -translate-y-1/2" />
+                                    )}
                                 </div>
                             </ScrollReveal>
                         ))}
