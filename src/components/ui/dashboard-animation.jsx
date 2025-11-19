@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, FileText, Wallet, DollarSign, ArrowRight, Pause } from "lucide-react";
+import { Clock, FileText, CheckCircle2, DollarSign, ArrowRight, Pause } from "lucide-react";
 
 export function DashboardAnimation() {
     const [step, setStep] = useState(0);
@@ -148,61 +148,37 @@ export function DashboardAnimation() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 1.1 }}
                             transition={{ duration: 0.5 }}
-                            className="w-full max-w-sm flex flex-col items-center"
+                            className="w-full max-w-sm"
                         >
-                            <div className="relative mb-6">
-                                {/* Wallet */}
-                                <div className="w-20 h-20 bg-background border border-white/10 rounded-2xl flex items-center justify-center shadow-2xl relative z-10">
-                                    <Wallet className="text-white w-10 h-10" />
+                            <div className="bg-background/80 border border-green-500/30 rounded-lg p-6 shadow-xl flex flex-col items-center text-center relative overflow-hidden">
+                                <div className="absolute inset-0 bg-green-500/5" />
+
+                                <motion.div
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                                    className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-green-400"
+                                >
+                                    <CheckCircle2 size={32} />
+                                </motion.div>
+
+                                <h3 className="text-xl font-bold text-white mb-1">Total Received</h3>
+                                <p className="text-gray-400 text-sm mb-4">All invoices settled.</p>
+
+                                <div className="flex items-center gap-2 text-3xl font-bold text-green-400">
+                                    <DollarSign size={28} />
+                                    <span>22,700.00</span>
                                 </div>
 
-                                {/* Dropping Coins */}
-                                {[...Array(5)].map((_, i) => (
-                                    <motion.div
-                                        key={i}
-                                        className="absolute left-1/2 -translate-x-1/2 text-accent z-0"
-                                        initial={{ y: -100, opacity: 0, scale: 0.5 }}
-                                        animate={{
-                                            y: 0,
-                                            opacity: [0, 1, 0],
-                                            scale: 1,
-                                            rotate: [0, 180, 360]
-                                        }}
-                                        transition={{
-                                            duration: 1.5,
-                                            delay: i * 0.2,
-                                            ease: "easeIn",
-                                            repeat: Infinity,
-                                            repeatDelay: 2
-                                        }}
-                                    >
-                                        <div className="w-8 h-8 rounded-full bg-accent/20 border border-accent flex items-center justify-center text-[10px] font-bold">
-                                            $
-                                        </div>
-                                    </motion.div>
-                                ))}
-
-                                {/* Glow behind wallet */}
-                                <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full -z-10 animate-pulse" />
+                                <motion.div
+                                    className="mt-4 text-xs text-green-500/70 flex items-center gap-1"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.5 }}
+                                >
+                                    Funds available instantly <ArrowRight size={10} />
+                                </motion.div>
                             </div>
-
-                            <motion.h3
-                                className="text-3xl font-bold text-white mb-2 text-center"
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 }}
-                            >
-                                Get Paid <span className="text-accent">Sooner</span>
-                            </motion.h3>
-
-                            <motion.p
-                                className="text-gray-400 text-sm text-center max-w-[200px]"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.7 }}
-                            >
-                                Automated follow-ups and instant payments.
-                            </motion.p>
                         </motion.div>
                     )}
                 </AnimatePresence>
