@@ -1,4 +1,4 @@
-import CurvedLoop from "@/components/ui/curved-loop";
+
 
 import { Navbar } from "./components/Navbar";
 import { HeroDemo } from "./components/Hero";
@@ -56,7 +56,7 @@ function App() {
         </section>
       </main>
 
-      <CurvedLoop marqueeText="Get Universe ✦ work smarter ✦ invoice faster ✦ get paid sooner✦" curveAmount={0} />
+
       <Footer />
     </div>
   );
