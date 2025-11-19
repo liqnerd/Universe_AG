@@ -1,3 +1,5 @@
+import CurvedLoop from "@/components/ui/curved-loop";
+
 import { Navbar } from "./components/Navbar";
 import { HeroDemo } from "./components/Hero";
 import { Features } from "./components/Features";
@@ -54,6 +56,7 @@ function App() {
         </section>
       </main>
 
+      <CurvedLoop marqueeText="Universe ✦ The Future of Work ✦" />
       <Footer />
     </div>
   );
