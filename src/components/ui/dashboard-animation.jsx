@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, FileText, CheckCircle2, DollarSign, ArrowRight, Pause } from "lucide-react";
+import { Clock, FileText, CheckCircle2, DollarSign, ArrowRight, Pause, Check } from "lucide-react";
 
 export function DashboardAnimation() {
     const [step, setStep] = useState(0);
@@ -184,20 +184,37 @@ export function DashboardAnimation() {
                 </AnimatePresence>
             </div>
 
-            {/* Progress Bar */}
-            <div className="h-14 border-t border-white/5 flex flex-col justify-center px-6 bg-white/[0.02]">
-                <div className="flex justify-between text-[10px] font-medium mb-2 uppercase tracking-wider">
-                    <span className={`transition-colors duration-300 ${step >= 0 ? "text-white" : "text-gray-600"}`}>Track</span>
-                    <span className={`transition-colors duration-300 ${step >= 1 ? "text-white" : "text-gray-600"}`}>Invoice</span>
-                    <span className={`transition-colors duration-300 ${step >= 2 ? "text-white" : "text-gray-600"}`}>Get Paid</span>
+            {/* Progress Indicators & Loading Bar */}
+            <div className="border-t border-white/5 flex flex-col justify-center px-6 py-4 bg-white/[0.02] gap-3">
+                {/* Indicators */}
+                <div className="flex items-center justify-between px-2">
+                    <div className={`flex items-center gap-2 text-xs transition-colors duration-300 ${step >= 0 ? 'text-accent' : 'text-gray-600'}`}>
+                        {step > 0 ? <CheckCircle2 size={14} /> : <Clock size={14} />}
+                        <span>Track</span>
+                    </div>
+                    <div className={`flex items-center gap-2 text-xs transition-colors duration-300 ${step >= 1 ? 'text-purple-400' : 'text-gray-600'}`}>
+                        {step > 1 ? <CheckCircle2 size={14} /> : <FileText size={14} />}
+                        <span>Invoice</span>
+                    </div>
+                    <div className={`flex items-center gap-2 text-xs transition-colors duration-300 ${step >= 2 ? 'text-green-400' : 'text-gray-600'}`}>
+                        {step > 2 ? <CheckCircle2 size={14} /> : <DollarSign size={14} />}
+                        <span>Get Paid</span>
+                    </div>
                 </div>
-                <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden relative">
-                    <motion.div
-                        className="absolute top-0 left-0 h-full bg-accent shadow-[0_0_10px_rgba(210,245,88,0.5)]"
-                        initial={{ width: "0%" }}
-                        animate={{ width: `${((step + 1) / 3) * 100}%` }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                    />
+
+                {/* Loading Bar */}
+                <div className="flex items-center gap-3">
+                    <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden relative">
+                        <motion.div
+                            className="absolute top-0 left-0 h-full bg-accent shadow-[0_0_10px_rgba(210,245,88,0.5)]"
+                            initial={{ width: "0%" }}
+                            animate={{ width: `${((step + 1) / 3) * 100}%` }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        />
+                    </div>
+                    <div className={`transition-colors duration-300 ${step === 2 ? 'text-accent' : 'text-gray-700'}`}>
+                        <CheckCircle2 size={16} />
+                    </div>
                 </div>
             </div>
         </div>
