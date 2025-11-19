@@ -56,7 +56,7 @@ function App() {
         </section>
       </main>
 
-      <CurvedLoop marqueeText="Universe ✦ The Future of Work ✦" />
+      <CurvedLoop marqueeText="Get Universe ✦ work smarter ✦ invoice faster ✦ get paid sooner✦" />
       <Footer />
     </div>
   );
