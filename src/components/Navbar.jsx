@@ -59,12 +59,7 @@ export function Navbar() {
                 </a>
             </div>
 
-            {/* Fixed CTA (Top Right) */}
-            <div className="fixed top-6 right-6 pointer-events-auto">
-                <button type="button" className="text-background bg-accent hover:bg-accent-hover focus:ring-4 focus:outline-none focus:ring-accent/30 font-medium rounded-full text-sm px-6 py-2.5 text-center transition-all duration-300 shadow-neon hover:shadow-neon-hover transform hover:-translate-y-0.5">
-                    Get Early Access
-                </button>
-            </div>
+
 
             {/* Tubelight Navbar (Center) */}
             <nav className={cn(
