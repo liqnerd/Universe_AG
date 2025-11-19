@@ -63,8 +63,7 @@ export function Navbar() {
 
             {/* Tubelight Navbar (Center) */}
             <nav className={cn(
-                "fixed left-1/2 -translate-x-1/2 pointer-events-auto transition-all duration-300",
-                isMobile ? "bottom-6 top-auto" : "top-6 bottom-auto"
+                "fixed left-1/2 -translate-x-1/2 pointer-events-auto transition-all duration-300 top-6"
             )}>
                 <div className="relative flex items-center gap-1 bg-white/5 border border-white/10 backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
                     {navItems.map((item) => {

@@ -155,7 +155,7 @@ function Hero() {
 
                     {/* Dashboard Preview */}
                     <div className="relative mt-12 mx-auto max-w-5xl w-full">
-                        <div className="relative rounded-xl border border-white/10 bg-surface/50 backdrop-blur-sm shadow-2xl overflow-hidden aspect-[16/9] group">
+                        <div className="relative rounded-xl border border-white/10 bg-surface/50 backdrop-blur-sm shadow-2xl overflow-hidden aspect-[3/4] md:aspect-[16/9] group">
                             <DashboardAnimation />
                         </div>
                         {/* Decorative elements */}
