@@ -22,6 +22,10 @@ function Hero() {
                 "template_oe2m4nj",
                 {
                     user_email: email,
+                    email: email,
+                    to_email: email,
+                    reply_to: email,
+                    message: `New waitlist signup: ${email}`,
                 },
                 "Xvl_I-VeW5H5r1-Tj"
             );
