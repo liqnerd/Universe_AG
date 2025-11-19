@@ -1,17 +1,45 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, FileText, CheckCircle2, DollarSign, ArrowRight } from "lucide-react";
+import { Clock, FileText, CheckCircle2, DollarSign, ArrowRight, Play, Pause } from "lucide-react";
 
 export function DashboardAnimation() {
     const [step, setStep] = useState(0);
+    const [timer, setTimer] = useState(9912); // Start at 02:45:12 (in seconds)
 
+    // Cycle steps
     useEffect(() => {
-        const timer = setInterval(() => {
+        const stepInterval = setInterval(() => {
             setStep((prev) => (prev + 1) % 3);
-        }, 3500); // Change step every 3.5 seconds
-
-        return () => clearInterval(timer);
+        }, 5000); // 5 seconds per step
+        return () => clearInterval(stepInterval);
     }, []);
+
+    // Timer logic (runs continuously)
+    useEffect(() => {
+        const timerInterval = setInterval(() => {
+            setTimer((prev) => prev + 1);
+        }, 1000);
+        return () => clearInterval(timerInterval);
+    }, []);
+
+    const formatTime = (totalSeconds) => {
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    };
+
+    const projects = [
+        { id: 1, name: "Website Redesign", client: "Acme Corp", time: timer, active: true, color: "text-blue-400", bg: "bg-blue-500/20" },
+        { id: 2, name: "Mobile App", client: "Stark Ind", time: 51605, active: false, color: "text-purple-400", bg: "bg-purple-500/20" },
+        { id: 3, name: "Brand Identity", client: "Wayne Ent", time: 12450, active: false, color: "text-orange-400", bg: "bg-orange-500/20" },
+    ];
+
+    const invoices = [
+        { id: 1024, client: "Acme Corp", amount: "$6,000.00", status: "Sent", color: "text-blue-400", bg: "bg-blue-500/20" },
+        { id: 1025, client: "Stark Ind", amount: "$12,500.00", status: "Draft", color: "text-purple-400", bg: "bg-purple-500/20" },
+        { id: 1026, client: "Wayne Ent", amount: "$4,200.00", status: "Paid", color: "text-green-400", bg: "bg-green-500/20" },
+    ];
 
     return (
         <div className="relative w-full h-full bg-surface/50 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden flex flex-col">
@@ -35,39 +63,43 @@ export function DashboardAnimation() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.5 }}
-                            className="w-full max-w-sm"
+                            className="w-full max-w-sm space-y-3"
                         >
-                            <div className="bg-background/80 border border-white/10 rounded-lg p-4 shadow-xl">
-                                <div className="flex items-center justify-between mb-4">
+                            {projects.map((project, index) => (
+                                <motion.div
+                                    key={project.id}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className={`bg-background/80 border ${project.active ? 'border-accent/50 shadow-[0_0_15px_rgba(210,245,88,0.1)]' : 'border-white/5'} rounded-lg p-3 shadow-lg flex items-center justify-between`}
+                                >
                                     <div className="flex items-center gap-3">
-                                        <div className="p-2 bg-blue-500/20 rounded-lg text-blue-400">
-                                            <Clock size={20} />
+                                        <div className={`p-2 ${project.bg} rounded-lg ${project.color}`}>
+                                            <Clock size={16} />
                                         </div>
                                         <div>
-                                            <h3 className="font-medium text-white">Website Redesign</h3>
-                                            <p className="text-xs text-gray-400">Client: Acme Corp</p>
+                                            <h3 className="font-medium text-white text-sm">{project.name}</h3>
+                                            <p className="text-[10px] text-gray-400">Client: {project.client}</p>
                                         </div>
                                     </div>
                                     <div className="text-right">
-                                        <motion.div
-                                            className="text-xl font-mono font-bold text-accent"
-                                            animate={{ opacity: [1, 0.5, 1] }}
-                                            transition={{ duration: 1, repeat: Infinity }}
-                                        >
-                                            02:45:12
-                                        </motion.div>
-                                        <p className="text-xs text-green-400">Tracking...</p>
+                                        <div className={`font-mono font-bold text-sm ${project.active ? 'text-accent' : 'text-gray-500'}`}>
+                                            {formatTime(project.time)}
+                                        </div>
+                                        {project.active ? (
+                                            <div className="flex items-center justify-end gap-1 text-[10px] text-accent animate-pulse">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                                                <span>Running</span>
+                                            </div>
+                                        ) : (
+                                            <div className="flex items-center justify-end gap-1 text-[10px] text-gray-600">
+                                                <Pause size={8} />
+                                                <span>Paused</span>
+                                            </div>
+                                        )}
                                     </div>
-                                </div>
-                                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                                    <motion.div
-                                        className="h-full bg-accent"
-                                        initial={{ width: "0%" }}
-                                        animate={{ width: "100%" }}
-                                        transition={{ duration: 3.5, ease: "linear" }}
-                                    />
-                                </div>
-                            </div>
+                                </motion.div>
+                            ))}
                         </motion.div>
                     )}
 
@@ -78,45 +110,42 @@ export function DashboardAnimation() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.5 }}
-                            className="w-full max-w-sm"
+                            className="w-full max-w-sm space-y-3"
                         >
-                            <div className="bg-background/80 border border-white/10 rounded-lg p-4 shadow-xl relative overflow-hidden">
-                                {/* Scanning effect */}
+                            <div className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">Recent Invoices</div>
+                            {invoices.map((invoice, index) => (
                                 <motion.div
-                                    className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/10 to-transparent"
-                                    initial={{ top: "-100%" }}
-                                    animate={{ top: "100%" }}
-                                    transition={{ duration: 1.5, ease: "easeInOut" }}
-                                />
-
-                                <div className="flex items-center justify-between mb-6">
+                                    key={invoice.id}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.15 }}
+                                    className="bg-background/80 border border-white/10 rounded-lg p-3 shadow-lg flex items-center justify-between group"
+                                >
                                     <div className="flex items-center gap-3">
-                                        <div className="p-2 bg-purple-500/20 rounded-lg text-purple-400">
-                                            <FileText size={20} />
+                                        <div className={`p-2 ${invoice.bg} rounded-lg ${invoice.color}`}>
+                                            <FileText size={16} />
                                         </div>
                                         <div>
-                                            <h3 className="font-medium text-white">Invoice #1024</h3>
-                                            <p className="text-xs text-gray-400">Generating...</p>
+                                            <h3 className="font-medium text-white text-sm">{invoice.client}</h3>
+                                            <p className="text-[10px] text-gray-400">#{invoice.id}</p>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div className="space-y-3">
-                                    <div className="flex justify-between text-sm">
-                                        <span className="text-gray-400">Design Services</span>
-                                        <span className="text-white">$2,400.00</span>
+                                    <div className="text-right">
+                                        <div className="font-bold text-white text-sm">{invoice.amount}</div>
+                                        <div className={`text-[10px] ${invoice.status === 'Paid' ? 'text-green-400' : 'text-gray-500'}`}>
+                                            {invoice.status}
+                                        </div>
                                     </div>
-                                    <div className="flex justify-between text-sm">
-                                        <span className="text-gray-400">Development</span>
-                                        <span className="text-white">$3,600.00</span>
-                                    </div>
-                                    <div className="h-px w-full bg-white/10 my-2" />
-                                    <div className="flex justify-between font-bold">
-                                        <span className="text-white">Total</span>
-                                        <span className="text-accent">$6,000.00</span>
-                                    </div>
-                                </div>
-                            </div>
+                                    {index === 0 && (
+                                        <motion.div
+                                            className="absolute inset-0 bg-accent/5 pointer-events-none"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: [0, 1, 0] }}
+                                            transition={{ duration: 2, repeat: Infinity }}
+                                        />
+                                    )}
+                                </motion.div>
+                            ))}
                         </motion.div>
                     )}
 
@@ -141,12 +170,12 @@ export function DashboardAnimation() {
                                     <CheckCircle2 size={32} />
                                 </motion.div>
 
-                                <h3 className="text-xl font-bold text-white mb-1">Payment Received</h3>
-                                <p className="text-gray-400 text-sm mb-4">Invoice #1024 has been paid.</p>
+                                <h3 className="text-xl font-bold text-white mb-1">Total Received</h3>
+                                <p className="text-gray-400 text-sm mb-4">All invoices settled.</p>
 
-                                <div className="flex items-center gap-2 text-2xl font-bold text-green-400">
-                                    <DollarSign size={24} />
-                                    <span>6,000.00</span>
+                                <div className="flex items-center gap-2 text-3xl font-bold text-green-400">
+                                    <DollarSign size={28} />
+                                    <span>22,700.00</span>
                                 </div>
 
                                 <motion.div
