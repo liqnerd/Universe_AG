@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { DashboardAnimation } from "./dashboard-animation";
 
 function Hero() {
     const [titleNumber, setTitleNumber] = useState(0);
@@ -91,19 +92,7 @@ function Hero() {
                     {/* Dashboard Preview */}
                     <div className="relative mt-12 mx-auto max-w-5xl w-full">
                         <div className="relative rounded-xl border border-white/10 bg-surface/50 backdrop-blur-sm shadow-2xl overflow-hidden aspect-[16/9] group">
-                            {/* Abstract UI Representation */}
-                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-surface to-background">
-                                <div className="text-center">
-                                    <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center animate-pulse-slow">
-                                        <svg className="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                        </svg>
-                                    </div>
-                                    <p className="text-gray-500 text-sm uppercase tracking-widest">Dashboard Preview</p>
-                                </div>
-                            </div>
-                            {/* Glow effect on hover */}
-                            <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <DashboardAnimation />
                         </div>
                         {/* Decorative elements */}
                         <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl -z-10"></div>
