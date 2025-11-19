@@ -184,21 +184,20 @@ export function DashboardAnimation() {
                 </AnimatePresence>
             </div>
 
-            {/* Progress Indicators */}
-            <div className="h-12 border-t border-white/5 flex items-center justify-center gap-8 px-6">
-                <div className={`flex items-center gap-2 text-xs transition-colors duration-300 ${step === 0 ? 'text-accent' : 'text-gray-600'}`}>
-                    <Clock size={14} />
-                    <span>Track</span>
+            {/* Progress Bar */}
+            <div className="h-14 border-t border-white/5 flex flex-col justify-center px-6 bg-white/[0.02]">
+                <div className="flex justify-between text-[10px] font-medium mb-2 uppercase tracking-wider">
+                    <span className={`transition-colors duration-300 ${step >= 0 ? "text-white" : "text-gray-600"}`}>Track</span>
+                    <span className={`transition-colors duration-300 ${step >= 1 ? "text-white" : "text-gray-600"}`}>Invoice</span>
+                    <span className={`transition-colors duration-300 ${step >= 2 ? "text-white" : "text-gray-600"}`}>Get Paid</span>
                 </div>
-                <div className={`w-8 h-px transition-colors duration-300 ${step > 0 ? 'bg-accent/50' : 'bg-white/5'}`} />
-                <div className={`flex items-center gap-2 text-xs transition-colors duration-300 ${step === 1 ? 'text-purple-400' : 'text-gray-600'}`}>
-                    <FileText size={14} />
-                    <span>Invoice</span>
-                </div>
-                <div className={`w-8 h-px transition-colors duration-300 ${step > 1 ? 'bg-green-500/50' : 'bg-white/5'}`} />
-                <div className={`flex items-center gap-2 text-xs transition-colors duration-300 ${step === 2 ? 'text-green-400' : 'text-gray-600'}`}>
-                    <DollarSign size={14} />
-                    <span>Get Paid</span>
+                <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden relative">
+                    <motion.div
+                        className="absolute top-0 left-0 h-full bg-accent shadow-[0_0_10px_rgba(210,245,88,0.5)]"
+                        initial={{ width: "0%" }}
+                        animate={{ width: `${((step + 1) / 3) * 100}%` }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                    />
                 </div>
             </div>
         </div>
