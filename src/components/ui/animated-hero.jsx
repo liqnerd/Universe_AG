@@ -56,7 +56,7 @@ function Hero() {
 
     return (
         <div className="w-full">
-            <div className="container mx-auto">
+            <div className="container mx-auto px-4">
                 <div className="flex gap-8 pt-32 pb-20 lg:py-40 items-center justify-center flex-col">
 
                     {/* Text Content */}
