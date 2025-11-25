@@ -223,7 +223,7 @@ Tento projekt je soukromý a slouží jako demo aplikace.
 
 ## 👥 Autoři
 
-- **Lucie Hegerová** - [luciehegerova99@gmail.com](mailto:luciehegerova99@gmail.com)
+- **Lucie Hegerová** 
 
 ## 🙏 Poděkování
 
