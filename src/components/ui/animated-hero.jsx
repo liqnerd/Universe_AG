@@ -57,7 +57,7 @@ function Hero() {
     return (
         <div className="w-full">
             <div className="container mx-auto px-4">
-                <div className="flex gap-8 pt-32 pb-20 lg:py-40 items-center justify-center flex-col">
+                <div className="flex gap-8 pt-48 pb-20 lg:py-40 items-center justify-center flex-col">
 
                     {/* Text Content */}
                     <div className="flex gap-4 flex-col">
@@ -154,7 +154,7 @@ function Hero() {
                     </form>
 
                     {/* Dashboard Preview */}
-                    <div className="relative mt-12 mx-auto max-w-5xl w-full">
+                    <div className="relative mt-20 md:mt-32 mx-auto max-w-5xl w-full">
                         <div className="relative rounded-xl border border-white/10 bg-surface/50 backdrop-blur-sm shadow-2xl overflow-hidden aspect-[3/4] md:aspect-[16/9] group">
                             <DashboardAnimation />
                         </div>

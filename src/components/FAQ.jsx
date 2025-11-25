@@ -6,16 +6,20 @@ import { cn } from "../lib/utils";
 
 const faqs = [
     {
-        question: "When will Universe launch?",
-        answer: "We are currently in private beta and plan to open public access in Q4 2025. Join the waitlist to get early access.",
-    },
-    {
         question: "Will it be free?",
         answer: "Universe will have a generous free tier for individual freelancers. We will also offer a Pro plan with advanced automation and unlimited history.",
     },
     {
         question: "Can I invite team members?",
         answer: "Yes! The Pro plan supports small teams, allowing you to share projects, track team time, and manage invoices together.",
+    },
+    {
+        question: "Can I export data for my accountant?",
+        answer: "Yes, all invoices and timesheets can be exported in PDF, CSV, and XLSX formats. We also offer a free read-only \"Accountant Mode\" for secure and easy data access.",
+    },
+    {
+        question: "Does the app work offline?",
+        answer: "Yes, critical functions like task management and time tracking work fully offline, storing data locally. The system automatically performs a Smart Sync as soon as you reconnect to the internet.",
     },
 ];
 

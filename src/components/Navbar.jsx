@@ -52,7 +52,7 @@ export function Navbar() {
     return (
         <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
             {/* Fixed Logo (Top Left) */}
-            <div className="fixed top-6 left-6 pointer-events-auto">
+            <div className="fixed top-8 left-6 pointer-events-auto">
                 <a href="#" className="flex items-center space-x-2 group">
                     <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-background font-bold text-lg group-hover:shadow-neon transition-all duration-300">U</div>
                     <span className="self-center text-2xl font-semibold whitespace-nowrap tracking-tight text-white hidden md:block">Universe</span>
