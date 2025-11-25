@@ -197,7 +197,7 @@ export function DashboardAnimation() {
                         {step > 0 ? <CheckCircle2 size={14} /> : <Clock size={14} />}
                         <span>Track</span>
                     </div>
-                    <div className={`flex items-center gap-2 text-xs transition-colors duration-300 ${step >= 1 ? 'text-purple-400' : 'text-gray-600'}`}>
+                    <div className={`flex items-center gap-2 text-xs transition-colors duration-300 ${step >= 1 ? 'text-[#d1f558]' : 'text-gray-600'}`}>
                         {step > 1 ? <CheckCircle2 size={14} /> : <FileText size={14} />}
                         <span>Invoice</span>
                     </div>
