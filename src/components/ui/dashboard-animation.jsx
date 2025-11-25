@@ -35,15 +35,15 @@ export function DashboardAnimation() {
     };
 
     const projects = [
-        { id: 1, name: "Website Redesign", client: "Acme Corp", time: timer, active: true, color: "text-blue-400", bg: "bg-blue-500/20" },
+        { id: 1, name: "Website Redesign", client: "Acme Corp", time: timer, active: true, color: "text-[#d1f558]", bg: "bg-[#d1f558]/20" },
         { id: 2, name: "Mobile App", client: "Stark Ind", time: 51605, active: false, color: "text-purple-400", bg: "bg-purple-500/20" },
-        { id: 3, name: "Brand Identity", client: "Wayne Ent", time: 12450, active: false, color: "text-orange-400", bg: "bg-orange-500/20" },
+        { id: 3, name: "Brand Identity", client: "Wayne Ent", time: 12450, active: false, color: "text-[#a3a3a3]", bg: "bg-[#a3a3a3]/20" },
     ];
 
     const invoices = [
-        { id: 1024, client: "Acme Corp", amount: "$6,000.00", status: "Sent", color: "text-blue-400", bg: "bg-blue-500/20" },
+        { id: 1024, client: "Acme Corp", amount: "$6,000.00", status: "Sent", color: "text-[#a3a3a3]", bg: "bg-[#a3a3a3]/20" },
         { id: 1025, client: "Stark Ind", amount: "$12,500.00", status: "Draft", color: "text-purple-400", bg: "bg-purple-500/20" },
-        { id: 1026, client: "Wayne Ent", amount: "$4,200.00", status: "Paid", color: "text-green-400", bg: "bg-green-500/20" },
+        { id: 1026, client: "Wayne Ent", amount: "$4,200.00", status: "Paid", color: "text-[#d1f558]", bg: "bg-[#d1f558]/20" },
     ];
 
     return (
@@ -137,7 +137,7 @@ export function DashboardAnimation() {
                                     </div>
                                     <div className="text-right">
                                         <div className="font-bold text-white text-sm">{invoice.amount}</div>
-                                        <div className={`text-[10px] ${invoice.status === 'Paid' ? 'text-green-400' : 'text-gray-500'}`}>
+                                        <div className={`text-[10px] ${invoice.status === 'Paid' ? 'text-[#d1f558]' : 'text-gray-500'}`}>
                                             {invoice.status}
                                         </div>
                                     </div>
@@ -155,14 +155,14 @@ export function DashboardAnimation() {
                             transition={{ duration: 0.5 }}
                             className="w-full max-w-sm"
                         >
-                            <div className="bg-background/80 border border-green-500/30 rounded-lg p-6 shadow-xl flex flex-col items-center text-center relative overflow-hidden">
-                                <div className="absolute inset-0 bg-green-500/5" />
+                            <div className="bg-background/80 border border-[#d1f558]/30 rounded-lg p-6 shadow-xl flex flex-col items-center text-center relative overflow-hidden">
+                                <div className="absolute inset-0 bg-[#d1f558]/5" />
 
                                 <motion.div
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
                                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                                    className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-green-400"
+                                    className="w-16 h-16 bg-[#d1f558]/20 rounded-full flex items-center justify-center mb-4 text-[#d1f558]"
                                 >
                                     <CheckCircle2 size={32} />
                                 </motion.div>
@@ -170,13 +170,13 @@ export function DashboardAnimation() {
                                 <h3 className="text-xl font-bold text-white mb-1">Total Received</h3>
                                 <p className="text-gray-400 text-sm mb-4">All invoices settled.</p>
 
-                                <div className="flex items-center gap-2 text-3xl font-bold text-green-400">
+                                <div className="flex items-center gap-2 text-3xl font-bold text-[#d1f558]">
                                     <DollarSign size={28} />
                                     <span>22,700.00</span>
                                 </div>
 
                                 <motion.div
-                                    className="mt-4 text-xs text-green-500/70 flex items-center gap-1"
+                                    className="mt-4 text-xs text-[#d1f558]/70 flex items-center gap-1"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.5 }}
@@ -201,7 +201,7 @@ export function DashboardAnimation() {
                         {step > 1 ? <CheckCircle2 size={14} /> : <FileText size={14} />}
                         <span>Invoice</span>
                     </div>
-                    <div className={`flex items-center gap-2 text-xs transition-colors duration-300 ${step >= 2 ? 'text-green-400' : 'text-gray-600'}`}>
+                    <div className={`flex items-center gap-2 text-xs transition-colors duration-300 ${step >= 2 ? 'text-[#d1f558]' : 'text-gray-600'}`}>
                         {step > 2 ? <CheckCircle2 size={14} /> : <DollarSign size={14} />}
                         <span>Get Paid</span>
                     </div>
