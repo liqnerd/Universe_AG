@@ -124,7 +124,7 @@ export function DashboardAnimation() {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: index * 0.15 }}
-                                    className="bg-background/80 border border-white/10 rounded-lg p-3 shadow-lg flex items-center justify-between group"
+                                    className={`bg-background/80 border ${invoice.status === 'Paid' ? 'border-[#d1f558]/50 shadow-[0_0_15px_rgba(209,245,88,0.1)]' : 'border-white/10'} rounded-lg p-3 shadow-lg flex items-center justify-between group`}
                                 >
                                     <div className="flex items-center gap-3">
                                         <div className={`p-2 ${invoice.bg} rounded-lg ${invoice.color}`}>
