@@ -39,9 +39,6 @@ Universe je navržen tak, aby freelancerům usnadnil správu jejich podnikání.
 ### Komunikace & Integrace
 
 - **[EmailJS](https://www.emailjs.com/)** - Serverless email služba pro waitlist
-  - Service ID: `service_lv9szpj`
-  - Template ID: `template_oe2m4nj`
-  - Příjem notifikací na: `luciehegerova99@gmail.com`
 
 ### Development Tools
 
