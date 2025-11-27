@@ -49,6 +49,19 @@ export function Navbar() {
         { name: 'FAQ', url: '#faq', icon: HelpCircle },
     ];
 
+    const handleLinkClick = (e, url) => {
+        e.preventDefault();
+        const targetId = url.substring(1);
+        const element = document.getElementById(targetId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        const navItem = navItems.find(item => item.url === url);
+        if (navItem) {
+            setActiveTab(navItem.name);
+        }
+    };
+
     return (
         <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
             {/* Fixed Logo (Top Left) */}
@@ -74,7 +87,7 @@ export function Navbar() {
                             <a
                                 key={item.name}
                                 href={item.url}
-                                onClick={() => setActiveTab(item.name)}
+                                onClick={(e) => handleLinkClick(e, item.url)}
                                 className={cn(
                                     "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors flex items-center gap-2",
                                     isActive ? "text-accent" : "text-gray-300 hover:text-accent"
